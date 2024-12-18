@@ -51,7 +51,7 @@ py2app==0.28
 pyasn1==0.5.0
 pyasn1-modules==0.3.0
 pycparser==2.21
-pygame==2.1.2
+pygame==2.6.1
 pyinstaller==5.0.1
 pyinstaller-hooks-contrib==2022.4
 PyJWT==2.10.1
