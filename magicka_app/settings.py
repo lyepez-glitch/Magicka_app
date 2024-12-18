@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^ujmxr7f_m)&3r5xy=f3!=+^u4udxl@u8lfbn+p@%g%ajx68^^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','magicka-app.onrender.com']
 
 
 
