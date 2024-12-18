@@ -1,10 +1,22 @@
 language: python
 
 python:
-  - "3.11"  # Specify the Python version
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"      # current default Python on Travis CI
+  - "3.7"
+  - "3.8"
+  - "3.9"
+  - "3.11"  ## Specify the Python version
+
+before_install:
+  - python -m pip install --upgrade pip
 
 install:
   - pip install -r requirements.txt  # Install dependencies
+  - pip install .
+
 #
 before_script:
   - python manage.py migrate  # Apply migrations
