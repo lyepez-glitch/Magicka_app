@@ -1,24 +1,10 @@
 language: python
-
 python:
-  - "3.11"  # Specify the exact version of Python you need
-
-before_install:
-  - python -m pip install --upgrade pip
-
+  - "3.8"
+  - "3.9"
+  - "3.10"
+  - "3.11"
 install:
-  - pip install -r requirements.txt  # Install dependencies
-
-before_script:
-  - python manage.py migrate  # Apply migrations
-
+  - pip install -r requirements.txt
 script:
-  - python manage.py test  ## Run Django tests
-
-deploy:
-  provider: script
-  script:
-    - chmod +x deploy_render.sh
-    - bash deploy_render.sh
-  on:
-    branch: main
+  - python manage.py test
