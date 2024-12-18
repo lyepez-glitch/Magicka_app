@@ -1,10 +1,5 @@
 #!/bin/bash
+echo "Starting deployment to Render..."
 
-# This script deploys to Render via Render's GitHub integration or CLI
-
-echo "Deploying to Render..."
-
-# Trigger the deployment by pushing to the Render-connected GitHub repository
-# Since Render is integrated with GitHub, pushing to the main branch should trigger an automatic deployment
-##
-git push render main  # Push to Render (ensure your GitHub repository is connected to Render)
+# Ensure Daphne starts the ASGI application
+daphne -b 0.0.0.0 -p 8000 your_project.asgi:application

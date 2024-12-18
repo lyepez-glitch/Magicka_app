@@ -1,20 +1,21 @@
 language: python
 
 python:
-  - "3.11.4"  # Specify Python version 3.11.4
+  - "3.11"  # Specify the Python version
 
 install:
   - pip install -r requirements.txt  # Install dependencies
 
 before_script:
-  - python manage.py migrate  # Run migrations to set up the database
+  - python manage.py migrate  # Apply migrations
 
 script:
   - python manage.py test  # Run tests
 
 deploy:
-  provider: script  # We will use a custom script for Render deployment
+  provider: script
   script:
-    - bash deploy_render.sh  # A script to handle deployment on Render
+    - chmod +x deploy_render.sh  # Ensure the script is executable
+    - bash deploy_render.sh  # Deploy to Render using Daphne
   on:
-    branch: main  # Deploy only on the main branch
+    branch: main  # Deploy from main branch
