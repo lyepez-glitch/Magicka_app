@@ -1,4 +1,6 @@
 language: python
+python:
+  - "3.10"
 dist: focal  # Use Ubuntu 20.04 for better Python compatibility
 install:
   - pyenv install 3.10.0
