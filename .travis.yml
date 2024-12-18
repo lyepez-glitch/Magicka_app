@@ -1,7 +1,9 @@
 language: python
-python:
-  - "3.10"
+dist: focal  # Use Ubuntu 20.04 for better Python compatibility
 install:
+  - pyenv install 3.10.0
+  - pyenv global 3.10.0
+  - python -m pip install --upgrade pip
   - pip install -r requirements.txt
 script:
   - python manage.py test
