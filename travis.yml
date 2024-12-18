@@ -13,7 +13,7 @@ before_script:
   - python manage.py migrate  # Apply migrations
 
 script:
-  - python manage.py test  # Run Django tests
+  - python manage.py test  ## Run Django tests
 
 deploy:
   provider: script
