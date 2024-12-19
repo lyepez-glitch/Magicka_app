@@ -48,9 +48,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [
-                ('oregon-redis.render.com', 6379, {'password': 'HqQkIX7TpsWASLEaBwt8KcccBjWepru3'}),
-            ],
+            'hosts': [('red-csog0sdsvqrc739h22a0', 6379)],
         },
     },
 }
