@@ -92,7 +92,7 @@ TEMPLATES = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",'https://magicka-frontend-qw6nzg1nc-lucas-projects-f61d5cb5.vercel.app',  # Add your frontend URL here
+    "http://localhost:5173",'https://magicka-frontend-4gssgjfqd-lucas-projects-f61d5cb5.vercel.app/',  # Add your frontend URL here
 ]
 
 WSGI_APPLICATION = 'magicka_app.wsgi.application'
