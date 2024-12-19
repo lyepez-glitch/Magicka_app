@@ -48,10 +48,13 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            'hosts': [
+                ('oregon-redis.render.com', 6379, {'password': 'HqQkIX7TpsWASLEaBwt8KcccBjWepru3'}),
+            ],
         },
     },
 }
+
 ASGI_APPLICATION = 'magicka_app.asgi.application'
 
 MIDDLEWARE = [
