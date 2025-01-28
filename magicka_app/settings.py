@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^ujmxr7f_m)&3r5xy=f3!=+^u4udxl@u8lfbn+p@%g%ajx68^^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','magicka-app.onrender.com','https://magicka-frontend-auth-duh06in1h-lucas-projects-f61d5cb5.vercel.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','magicka-app.onrender.com','https://magicka-frontend-auth-duh06in1h-lucas-projects-f61d5cb5.vercel.app','https://magicka-frontend-auth-3d1s3mk9v-lucas-projects-f61d5cb5.vercel.app']
 
 
 
@@ -94,7 +94,8 @@ TEMPLATES = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://magicka-frontend-auth-duh06in1h-lucas-projects-f61d5cb5.vercel.app"
+    "https://magicka-frontend-auth-duh06in1h-lucas-projects-f61d5cb5.vercel.app",
+    "https://magicka-frontend-auth-3d1s3mk9v-lucas-projects-f61d5cb5.vercel.app"
 ]
 
 
