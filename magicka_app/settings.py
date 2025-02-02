@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-^ujmxr7f_m)&3r5xy=f3!=+^u4udxl@u8lfbn+p@%g%ajx68^^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','magicka-app.onrender.com','https://magicka-frontend-auth-duh06in1h-lucas-projects-f61d5cb5.vercel.app','https://magicka-frontend-auth-3d1s3mk9v-lucas-projects-f61d5cb5.vercel.app']
+FRONTEND_URL = os.getenv('FRONTEND_URL')
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',FRONTEND_URL
+]
 
 
 
@@ -94,8 +97,7 @@ TEMPLATES = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://magicka-frontend-auth-duh06in1h-lucas-projects-f61d5cb5.vercel.app",
-    "https://magicka-frontend-auth-3d1s3mk9v-lucas-projects-f61d5cb5.vercel.app"
+    FRONTEND_URL
 ]
 
 
@@ -104,9 +106,7 @@ WSGI_APPLICATION = 'magicka_app.wsgi.application'
 # INSTALLED_APPS += ['corsheaders']
 # MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:5173","https://magicka-frontend-qw6nzg1nc-lucas-projects-f61d5cb5.vercel.app"
-# ]
+
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
