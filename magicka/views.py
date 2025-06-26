@@ -175,8 +175,26 @@ class GetAllUsersView(APIView):
     permission_classes = [AllowAny]
 
     def get(self, request):
+        users_data = []
         users = User.objects.all().values('id', 'username', 'email', 'date_joined')
-        return Response({"users": list(users)}, status=status.HTTP_200_OK)
+        for user in users:
+            try:
+                profile = Profile.objects.get(user=user)
+                avatar_url = profile.avatar.url if profile.avatar else None
+            except Profile.DoesNotExist:
+                avatar_url = None
+        users_data.append({
+                'id': user.id,
+                'username': user.username,
+                'email': user.email,
+                'date_joined': user.date_joined,
+                'avatar': avatar_url,
+            })
+
+
+
+        avatar_url = profile.avatar.url if profile.avatar else None
+        return Response({"users": users_data}, status=status.HTTP_200_OK)
 
 class AttackUser(APIView):
     def post(self,request):
