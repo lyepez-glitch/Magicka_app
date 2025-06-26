@@ -183,6 +183,8 @@ class GetAllUsersView(APIView):
                 profile = Profile.objects.get(user=user)
                 avatar_url = profile.avatar.url if profile.avatar else None
                 print('avatar_url '+ str(avatar_url))
+                print("user object:", user)  # See user details
+                print("profile object:", profile)
             except Profile.DoesNotExist:
                 avatar_url = None
             users_data.append({
