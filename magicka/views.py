@@ -65,7 +65,8 @@ class LoginUserView(APIView):
                 'refresh': str(refresh),
                 'access': str(access_token),
                 'username': user.username,
-                'id':user.id
+                'id':user.id,
+
             })
 
         return JsonResponse({"error": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
@@ -76,7 +77,9 @@ class UpdateProfileView(APIView):
 
     def patch(self, request):
         user = request.user
+        #get profile from user.id
         profile = user.profile
+        #avatar is user.avatar
         avatar = request.data.get("avatar")
         energy_level = request.data.get("energy_level")
 
@@ -182,8 +185,8 @@ class GetAllUsersView(APIView):
             try:
                 profile = Profile.objects.get(user=user)
                 avatar_url = profile.avatar.url if profile.avatar else None
-                print("Avatar url:", profile.avatar.url)
-                print("Raw avatar value:", profile.avatar)
+
+
                 # print("Avatar path:", profile.avatar.name)
                 # print('avatar_url '+ str(avatar_url))
                 # print("user object:", user)  # See user details
@@ -255,6 +258,6 @@ class GetProfile(APIView):
                 "energy_level": profile.energy_level,
             }
 
-        return Response({"user":{"username":user.username,"id":user.id},"avatar": avatar_url,"energy_level":profile.energy_level}, status=status.HTTP_200_OK)
+        return Response({"user":{"username":user.username,"id":user.id},"avatar": avatar_url,"energy_level":profile.energy_level,"profile":profile}, status=status.HTTP_200_OK)
 
 
