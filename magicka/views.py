@@ -184,13 +184,13 @@ class GetAllUsersView(APIView):
                 avatar_url = profile.avatar.url if profile.avatar else None
             except Profile.DoesNotExist:
                 avatar_url = None
-        users_data.append({
-                'id': user.id,
-                'username': user.username,
-                'email': user.email,
-                'date_joined': user.date_joined,
-                'avatar': avatar_url,
-            })
+            users_data.append({
+                    'id': user.id,
+                    'username': user.username,
+                    'email': user.email,
+                    'date_joined': user.date_joined,
+                    'avatar': avatar_url,
+                })
 
 
 
