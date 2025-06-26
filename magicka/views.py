@@ -176,7 +176,8 @@ class GetAllUsersView(APIView):
 
     def get(self, request):
         users_data = []
-        users = User.objects.all().values('id', 'username', 'email', 'date_joined')
+        # users = User.objects.all().values('id', 'username', 'email', 'date_joined')
+        users = User.objects.all()
         for user in users:
             try:
                 profile = Profile.objects.get(user=user)
