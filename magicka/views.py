@@ -75,7 +75,7 @@ class LoginUserView(APIView):
 class UpdateProfileView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def patch(self, request):
+    def patch(self, request,id):
         user = request.user
         #get profile from user.id
         profile = user.profile
@@ -90,9 +90,9 @@ class UpdateProfileView(APIView):
                 profile.energy_level = energy_level
 
             profile.save()
-            return JsonResponse({"message": "Profile updated successfully!"})
+            return Response({"message": "Profile updated successfully!"}, status=status.HTTP_200_OK)
         except Exception as e:
-            return JsonResponse({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 # Launch Attack
 class LaunchAttackView(APIView):
