@@ -27,7 +27,7 @@ DEBUG = True
 
 FRONTEND_URL = os.getenv('FRONTEND_URL')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1',FRONTEND_URL,os.getenv('BACKEND_URL')]
+ALLOWED_HOSTS = ['http://localhost:5173','localhost', '127.0.0.1',FRONTEND_URL,os.getenv('BACKEND_URL')]
 
 
 
