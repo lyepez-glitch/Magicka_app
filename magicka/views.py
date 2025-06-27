@@ -76,10 +76,9 @@ class UpdateProfileView(APIView):
     permission_classes = [IsAuthenticated]
 
     def patch(self, request,id):
-        user = request.user
-        #get profile from user.id
-        profile = user.profile
-        #avatar is user.avatar
+        user = User.objects.get(id=id)
+        profile = Profile.objects.get(user=user)
+
         avatar = request.data.get("avatar")
         energy_level = request.data.get("energy_level")
 
