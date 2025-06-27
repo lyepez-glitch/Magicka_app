@@ -75,6 +75,19 @@ class LoginUserView(APIView):
 class UpdateProfileView(APIView):
     permission_classes = [IsAuthenticated]
 
+    def get(self, request, id):
+        user = User.objects.get(id=id)
+        profile = Profile.objects.get(user=user)
+        avatar_url = profile.avatar.url if profile.avatar else None
+        return Response({
+            "user": {
+                "username": user.username,
+                "id": user.id,
+            },
+            "avatar": avatar_url,
+            "energy_level": profile.energy_level
+        }, status=status.HTTP_200_OK)
+
     def patch(self, request,id):
         user = User.objects.get(id=id)
         profile = Profile.objects.get(user=user)
@@ -248,18 +261,18 @@ class AttackUser(APIView):
             "energy_cost":power.energy_cost
         })
 
-class GetProfile(APIView):
-    def get(self,request,id):
-        user = User.objects.get(id=id)
+# class GetProfile(APIView):
+#     def get(self,request,id):
+#         user = User.objects.get(id=id)
 
-        profile = Profile.objects.get(user=user)
-        avatar_url = profile.avatar.url if profile.avatar else None
-        profile_data = {
-                "id": user.id,
-                "avatar": avatar_url,
-                "energy_level": profile.energy_level,
-            }
+#         profile = Profile.objects.get(user=user)
+#         avatar_url = profile.avatar.url if profile.avatar else None
+#         profile_data = {
+#                 "id": user.id,
+#                 "avatar": avatar_url,
+#                 "energy_level": profile.energy_level,
+#             }
 
-        return Response({"user":{"username":user.username,"id":user.id},"avatar": avatar_url,"energy_level":profile.energy_level,"profile":profile}, status=status.HTTP_200_OK)
+#         return Response({"user":{"username":user.username,"id":user.id},"avatar": avatar_url,"energy_level":profile.energy_level,"profile":profile}, status=status.HTTP_200_OK)
 
 

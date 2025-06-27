@@ -11,6 +11,6 @@ urlpatterns = [
     path('powers/', GetPowers.as_view(), name='get-powers'),
     path('attacks/', GetAttacks.as_view(), name='get-attacks'),
     path('attackUser/', AttackUser.as_view(), name='attack_user'),
-    path('users/<int:id>/', GetProfile.as_view(), name='get_profile'),
+    # path('users/<int:id>/', GetProfile.as_view(), name='get_profile'),
     path('users/', GetAllUsersView.as_view(), name='get_users'),
 ]
