@@ -78,8 +78,10 @@ class UpdateProfileView(APIView):
     def patch(self, request,id):
         user = User.objects.get(id=id)
         profile = Profile.objects.get(user=user)
+        print('user ' + str(user))
 
         avatar = request.data.get("avatar")
+        print('avatar param ' + str(avatar))
         energy_level = request.data.get("energy_level")
 
         try:
@@ -87,6 +89,7 @@ class UpdateProfileView(APIView):
                 profile.avatar = avatar
             if energy_level:
                 profile.energy_level = energy_level
+            print('profile updated avatar '+ str(profile.avatar))
 
             profile.save()
             return Response({"message": "Profile updated successfully!"}, status=status.HTTP_200_OK)
